@@ -1,0 +1,19 @@
+<div *ngIf="!isShowTable; else elseBlock">
+  <div class="p1 mat-h2 mb0 center-txt"> {{objType}} </div>
+  <mat-divider></mat-divider>
+  <div *ngFor="let k of keys; let i = index" class="p1">
+    <b>{{ k }}:&nbsp;</b>
+    <span *ngIf="isLink(values[i]); else elseBlock">
+      <a href="{{ values[i] }}" target="_blank">{{ values[i] }}</a>
+    </span>
+    <ng-template #elseBlock> {{ values[i] }}</ng-template>
+
+    <button mat-icon-button [cdkCopyToClipboard]="values[i]" (click)="copy(values[i])">
+      <mat-icon class="f1">file_copy</mat-icon>
+    </button>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <app-table-view></app-table-view>
+</ng-template>

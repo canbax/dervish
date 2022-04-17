@@ -1,0 +1,70 @@
+<input #fileInp type="file" (change)="fileSelected()" accept="text/*, .json" style="display: none;" />
+
+<mat-sidenav-container class="container" [autosize]="isAutoSizeSideNav">
+  <mat-sidenav #sidenav mode="side" opened position="end" class="sidenav">
+    <div class="d-flex h100">
+      <div class="resizer" (mousedown)="click2resizer()">
+      </div>
+      <mat-tab-group [style.width]="widthRatioCSS" [(selectedIndex)]="selectedRightTabIdx">
+        <mat-tab label="Search">
+          <app-tree-select></app-tree-select>
+        </mat-tab>
+        <mat-tab label="Query">
+          <app-db-query></app-db-query>
+        </mat-tab>
+        <mat-tab label="Object">
+          <app-object-properties></app-object-properties>
+        </mat-tab>
+        <mat-tab label="Settings">
+          <app-settings></app-settings>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar>
+      <button mat-button [matMenuTriggerFor]="data">
+        Data<mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #data="matMenu">
+        <button (click)="loadSampleData()" mat-menu-item>Sample data</button>
+        <button (click)="deleteSelected()" mat-menu-item>Delete Selected</button>
+        <button (click)="loadGraphFromFile()" mat-menu-item>Load</button>
+        <button (click)="saveGraph2File()" mat-menu-item>Save</button>
+        <button (click)="clearData()" mat-menu-item>Clear data</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="view">
+        View <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #view="matMenu">
+        <button (click)="summarizeNeig()" mat-menu-item>
+          Summarize with containers
+        </button>
+        <button (click)="clearContainers()" mat-menu-item>
+          Clear containers
+        </button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="history">
+        History <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #history="matMenu">
+        <button (click)="goBackInGraphHistory()" mat-menu-item>Back</button>
+        <button (click)="goForwardInGraphHistory()" mat-menu-item>
+          Forward
+        </button>
+      </mat-menu>
+
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="open/close sidenav">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="cy-container">
+      <div id="cy"></div>
+      <div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner [diameter]="100"></mat-spinner>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.p1 {
+  padding: 0.5em;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w90 {
+  width: 90%;
+}
+
+.f1 {
+  font-size: 1.25em !important;
+}
+
+/* for 'cytoscape.js-context-menu' */
+.ctx-menu-container {
+  padding: 0.5rem 0 !important;
+  margin: 0.125rem 0 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  background-color: #ffffff !important;
+  border-radius: 0.25rem !important;
+  z-index: 1003;
+}
+
+.ctx-menu-item {
+  z-index: 1004 !important;
+  overflow: visible !important;
+  padding-right: 2rem;
+}
+
+.cy-context-menus-submenu-indicator {
+  right: 0.5 rem;
+  position: absolute;
+  top: 50%;
+  right: 0.25rem;
+  transform: translateY(-50%);
+}
+
+.center-txt {
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}

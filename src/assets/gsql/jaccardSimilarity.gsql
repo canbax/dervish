@@ -1,0 +1,26 @@
+CREATE QUERY jaccardSimilarity (VERTEX source, STRING vertexType, INT top_k = 100) FOR GRAPH derman {
+
+  SetAccum<VERTEX> @@nei1, @nei2, @interSet, @unionSet;
+  SumAccum<FLOAT> @score, @interCnt, @unionCnt;
+  
+  Start (ANY) = {source};
+  nei1 = SELECT t FROM Start:s-()-:t POST-ACCUM @@nei1 += t;
+  Others = SELECT t FROM nei1-()-:t WHERE t != source AND t.type == vertexType;
+       
+  // set neighbors of others
+  xx = SELECT t FROM Others:s-()-:t ACCUM s.@nei2 += t;
+  
+  results = SELECT t FROM Others:t 
+    ACCUM 
+      t.@interSet = t.@nei2 INTERSECT @@nei1,
+      t.@unionSet = t.@nei2 UNION @@nei1
+    POST-ACCUM
+      t.@interCnt = t.@interSet.size(),
+      t.@unionCnt = t.@unionSet.size(),
+      t.@score = t.@interCnt * 1.0 / t.@unionCnt
+    ORDER BY t.@score DESC
+    LIMIT top_k;
+   
+  PRINT results[results.@score];
+  PRINT nei1;
+}

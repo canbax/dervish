@@ -1,0 +1,33 @@
+<div>
+  <mat-form-field appearance="fill" class="w100 p1">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input />
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container [matColumnDef]="column" *ngFor="let column of columns">
+      <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+      <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr
+      (mouseenter)="onMouseEnter(row)"
+      (mouseleave)="onMouseExit(row)"
+      mat-row
+      *matRowDef="let row; columns: columns; let i = index"
+      [ngClass]="{ 'hover-on-cy': i == hoveredIdx }"
+    ></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+  ></mat-paginator>
+</div>

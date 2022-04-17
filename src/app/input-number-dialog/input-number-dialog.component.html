@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Enter integer</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>{{data.prompt}}</mat-label>
+    <input matInput [(ngModel)]="data.num" (keydown.enter)="passData()">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="passData()" cdkFocusInitial>Ok</button>
+</div>

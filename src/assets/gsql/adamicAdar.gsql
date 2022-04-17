@@ -1,0 +1,28 @@
+CREATE QUERY adamicAdar(VERTEX source, SET<VERTEX> targets) FOR GRAPH derman {
+  SumAccum<INT> @sum_num_neighbors;
+  MapAccum<VERTEX, DOUBLE> @@sum_closeness;
+  
+  start = {source};
+  nei1 = SELECT t FROM start -()- :t;  
+  
+  FOREACH curr in targets DO
+    tgtSet = {curr};
+    nei2 = SELECT n FROM tgtSet -()- :n;  # Get vertex B's neighbors
+             
+    commonNeigbors = nei1 INTERSECT nei2;  # Get neighbors in common
+    IF commonNeigbors.size() > 0 THEN
+      // first clear previous values
+      tmp = SELECT p FROM commonNeigbors:p -()- :r
+          ACCUM p.@sum_num_neighbors = 0;  # count number of neighbors of in-common vertices
+  
+      tmp = SELECT p FROM commonNeigbors:p -()- :r
+          ACCUM p.@sum_num_neighbors += 1;  # count number of neighbors of in-common vertices
+  
+      xx = SELECT p FROM tmp:p 
+          ACCUM @@sum_closeness += (curr -> 1/log10(p.@sum_num_neighbors));  # calculates closeness measure
+    END;
+  END;
+
+  
+  PRINT @@sum_closeness;
+}

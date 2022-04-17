@@ -1,0 +1,93 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Run Interpretted GSQL </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="center-txt p1">
+      <mat-chip-list aria-label="database queries">
+        <mat-chip
+          (click)="loadQuery(q)"
+          [removable]="true"
+          (removed)="removeQuery(q)"
+          *ngFor="let q of queries"
+        >
+          {{ q.name }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <input matInput [(ngModel)]="currQueryName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w100">
+        <mat-label>GSQL</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="1"
+          [(ngModel)]="gsql"
+        >
+        </textarea>
+      </mat-form-field>
+    </div>
+    <div class="center-txt">
+      <button mat-icon-button (click)="runQuery()">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+      <button mat-icon-button (click)="saveQuery()">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Run Installed GSQL </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <mat-chip-list aria-label="installed database queries">
+        <mat-chip
+          (click)="loadInstalledQuery(q)"
+          *ngFor="let q of installedQueries"
+        >
+          {{ q.name }}
+        </mat-chip>
+      </mat-chip-list>
+      <div *ngIf="currInstalledQuery">
+        <div *ngFor="let p of currInstalledQuery.params">
+          <code>{{ p.desc }}</code>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ p.name }}</mat-label>
+              <input matInput [(ngModel)]="p.inp" name="param-inp" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <button mat-raised-button (click)="runInstalledQuery()" class="w100">
+          Run <b>"{{ currInstalledQuery.name }}"</b>
+        </button>
+        <mat-divider
+          class="p1"
+          *ngIf="
+            rawInstalledQueryResponse && rawInstalledQueryResponse.length > 0
+          "
+        ></mat-divider>
+        <mat-accordion
+          *ngIf="
+            rawInstalledQueryResponse && rawInstalledQueryResponse.length > 0
+          "
+        >
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Results as JSON </mat-panel-title>
+            </mat-expansion-panel-header>
+            <code>{{ rawInstalledQueryResponse }}</code>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

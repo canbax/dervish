@@ -1,0 +1,35 @@
+CREATE QUERY editDistance(STRING s1, STRING s2) FOR GRAPH derman RETURNS(INT) {
+  
+  INT len1 = length(s1);
+  INT len2 = length(s2);
+  
+  ArrayAccum<SumAccum<INT>> @@dist[][];
+  @@dist.reallocate(len1 + 1, len2 + 1);
+  
+  INT len_cost = 0;
+  
+  // set first column
+  FOREACH i IN RANGE[0, len1] DO
+    @@dist[i][0] = i; 
+  END;
+  // set first row
+  FOREACH i IN RANGE[0, len2] DO
+    @@dist[0][i] = i; 
+  END;
+  
+  FOREACH i IN RANGE[1, len1] DO
+    FOREACH j IN RANGE[1, len2] DO
+      IF substr(s1, i-1, 1) == substr(s2, j-1, 1) THEN
+        len_cost = 0;
+      ELSE
+        len_cost = 1;
+      END;
+      @@dist[i][j] = min([@@dist[i-1][j] + 1, @@dist[i][j-1] + 1, @@dist[i-1][j-1] + len_cost]);
+      IF (i > 1) AND (j > 1) AND (substr(s1, i-1, 1) == substr(s2, j-2, 1)) AND (substr(s1, i-2, 1) == substr(s2, j-1, 1)) THEN
+        @@dist[i][j] = min([@@dist[i][j], @@dist[i-2][j-2] + len_cost]);
+      END;
+    END;
+  END;
+  
+  return @@dist[len1][len2];
+}
