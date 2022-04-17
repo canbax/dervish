@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "deploy": "ng deploy --base-href=/dervish/", 
     "test": "ng test"
   },
   "engines": {
@@ -25,6 +26,7 @@
     "@angular/platform-browser-dynamic": "~13.3.3",
     "@angular/router": "~13.3.3",
     "@angular/service-worker": "~13.3.3",
+    "angular-cli-ghpages": "^1.0.0",
     "cytoscape": "^3.21.1",
     "cytoscape-context-menus": "github:iVis-at-Bilkent/cytoscape.js-context-menus#unstable",
     "cytoscape-expand-collapse": "github:iVis-at-Bilkent/cytoscape.js-expand-collapse#unstable",
