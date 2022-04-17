@@ -1,0 +1,91 @@
+{
+  "configVersion": 1,
+  "timestamp": 1650206419943,
+  "index": "/dervish/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/dervish/favicon.ico",
+        "/dervish/index.html",
+        "/dervish/main.67da7abc7108d341.js",
+        "/dervish/manifest.webmanifest",
+        "/dervish/polyfills.7abc4f762d6b3927.js",
+        "/dervish/runtime.00cd3a09351fadc7.js",
+        "/dervish/styles.e7f8bb82bd089b00.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/dervish/assets/gsql/adamicAdar.gsql",
+        "/dervish/assets/gsql/editDistance.gsql",
+        "/dervish/assets/gsql/inchiSimilarity.gsql",
+        "/dervish/assets/gsql/jaccardSimilarity.gsql",
+        "/dervish/assets/icons/arrow_right.svg",
+        "/dervish/assets/icons/icon-128x128.png",
+        "/dervish/assets/icons/icon-144x144.png",
+        "/dervish/assets/icons/icon-152x152.png",
+        "/dervish/assets/icons/icon-192x192.png",
+        "/dervish/assets/icons/icon-384x384.png",
+        "/dervish/assets/icons/icon-512x512.png",
+        "/dervish/assets/icons/icon-72x72.png",
+        "/dervish/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/dervish/assets/gsql/adamicAdar.gsql": "1cb83bd5744bc03615233ac69097184c5db3c83a",
+    "/dervish/assets/gsql/editDistance.gsql": "271d90b1f8db5f2dfc4547341e467cfff8221f64",
+    "/dervish/assets/gsql/inchiSimilarity.gsql": "430bf878cab18f052cb9649ef6fe52831fc576dc",
+    "/dervish/assets/gsql/jaccardSimilarity.gsql": "2ff7795ab8cc7a210ee53385e28a907bc312702d",
+    "/dervish/assets/icons/arrow_right.svg": "b630acf8140f48fb1d8928865be145ca3a9e6bd7",
+    "/dervish/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/dervish/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/dervish/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/dervish/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/dervish/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/dervish/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/dervish/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/dervish/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/dervish/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/dervish/index.html": "887948956467a18415b99f93fe4b263670c4cdac",
+    "/dervish/main.67da7abc7108d341.js": "3593ba8a4b85b1ae81e2d6d8aae4db84faaca0b8",
+    "/dervish/manifest.webmanifest": "fc56a39d4f10e6ac8d2705813878c81688e41f79",
+    "/dervish/polyfills.7abc4f762d6b3927.js": "40193a12a0c351801cd02be590f6ecb11b1fbd85",
+    "/dervish/runtime.00cd3a09351fadc7.js": "a088eb15f12b9cd75e3aad89faf31e86e3626abd",
+    "/dervish/styles.e7f8bb82bd089b00.css": "6896d81921cb9b39eb03422923fa63ad11e9f074"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

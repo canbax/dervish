@@ -1,0 +1,24 @@
+CREATE QUERY inchiSimilarity(INT topN, VERTEX<Compound> v, SET<VERTEX<Compound>> l) FOR GRAPH derman { 
+  /* Write query logic here */ 
+  TYPEDEF tuple<VERTEX v, INT score> inchiSim;
+  HeapAccum<inchiSim>(topN, score DESC) @@distances;
+
+  SetAccum<VERTEX<Compound>> @@others;
+  INT dist = 0;
+  start = {l};
+  
+  IF l.size() < 1 THEN
+    start = SELECT s FROM Compound:s WHERE getvid(s) != getvid(v) POST-ACCUM @@others += s;
+  ELSE
+    @@others = l;
+  END; 
+  
+  
+  FOREACH item in @@others DO
+    dist = editDistance(item.inchi, v.inchi);
+    @@distances += inchiSim(item, dist);
+  END;
+  
+  
+  PRINT @@distances; 
+}
