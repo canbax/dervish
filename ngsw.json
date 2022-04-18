@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1650206419943,
+  "timestamp": 1650314748851,
   "index": "/dervish/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/dervish/favicon.ico",
         "/dervish/index.html",
-        "/dervish/main.67da7abc7108d341.js",
+        "/dervish/main.4b7916bd3c1e4b1e.js",
         "/dervish/manifest.webmanifest",
         "/dervish/polyfills.7abc4f762d6b3927.js",
         "/dervish/runtime.00cd3a09351fadc7.js",
@@ -62,8 +62,8 @@
     "/dervish/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/dervish/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/dervish/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/dervish/index.html": "887948956467a18415b99f93fe4b263670c4cdac",
-    "/dervish/main.67da7abc7108d341.js": "3593ba8a4b85b1ae81e2d6d8aae4db84faaca0b8",
+    "/dervish/index.html": "9fd6b875d4a2808a1c422dd72b82ef097012e7dd",
+    "/dervish/main.4b7916bd3c1e4b1e.js": "6c4cb5e862815caa486c616b65a5eae0a36ff685",
     "/dervish/manifest.webmanifest": "fc56a39d4f10e6ac8d2705813878c81688e41f79",
     "/dervish/polyfills.7abc4f762d6b3927.js": "40193a12a0c351801cd02be590f6ecb11b1fbd85",
     "/dervish/runtime.00cd3a09351fadc7.js": "a088eb15f12b9cd75e3aad89faf31e86e3626abd",
