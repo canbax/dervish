@@ -556,10 +556,8 @@ export class SharedService {
     if (!ele) {
       return;
     }
-    const classes = ele.className();
-    for (let c of classes) {
-      this.cy.$('.' + c).select();
-    }
+    const c = ele.classes()[0];
+    this.cy.$('.' + c).select();
   }
 
   isWarn4Collapsed(elems): boolean {
