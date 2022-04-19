@@ -21,12 +21,16 @@ In drug discovery and drug repurposing, interactions between objects are signifi
 
 ## How we built it
 
-I used [Angular](https://angular.io/) and [Angular Material](https://material.angular.io/) in the frontend. To generate the database I used [the DRKG dataset](https://github.com/gnn4dr/DRKG). Then I enriched this with [DGIDB](https://dgidb.org/) and [hetionet](https://github.com/hetio/hetionet) datasets. Basically, I merged these 3 datasets to create an extensive dataset.
+Firstly, we created dataset. To create dataset, we used Python and Jupyter notebook and [pyTigerGraph](https://github.com/pyTigerGraph/pyTigerGraph) library. Implementation of creating dataset, creating data schema and inserting to TigerGraph is available [inside another repository called "derman"](https://github.com/canbax/derman). Derman also contains all the data as text [inside a compressed file](https://github.com/canbax/derman/blob/main/data.7z). So you can recreate your own database.
+
+To generate the database We used [the DRKG dataset](https://github.com/gnn4dr/DRKG). Then we enriched this with [DGIDB](https://dgidb.org/) and [hetionet](https://github.com/hetio/hetionet) datasets. Basically, we merged these 3 datasets to create an extensive dataset.
+
+We used [Angular](https://angular.io/) and [Angular Material](https://material.angular.io/) in the frontend.
 
 ## Challenges we ran into
 
-- Understanding the domain was difficult. I read lots of papers and get help from Molecular Biolog friends.
-- Creating a useful and understandable dataset was hard. The DRKG was a knowledge graph dataset. So it doesn't contain and data properties . I wanted to use both data properties such as International Chemical Identifier (inchi) and also the topology of the graph. That's why I enriched the DRKG with 'hetionet' and 'DGIDB' datasets.
+- Understanding the domain was difficult. We read lots of papers and get help from Molecular Biolog friends.
+- Creating a useful and understandable dataset was hard. The DRKG was a knowledge graph dataset. So it doesn't contain and data properties . We wanted to use both data properties such as International Chemical Identifier (inchi) and also the topology of the graph. That's why we enriched the DRKG with 'hetionet' and 'DGIDB' datasets.
 
 ## Accomplishments that we're proud of
 
