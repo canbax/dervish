@@ -20,4 +20,4 @@ Only dependency is a TigerGraph solution. You can connect your solution to by pr
 ## Installation
 If you want to create your own data, go to https://github.com/canbax/derman and execute Jupyter notebook one by one.
 
-Other than that Dervish is already deployed https://canbax.github.io/dervish/
+Other than that Dervish uses some installed GSQL queries. All those queries needs to be installed in TigerGraph solution. Source codes of the queries are https://github.com/canbax/dervish/tree/main/src/assets/gsql
